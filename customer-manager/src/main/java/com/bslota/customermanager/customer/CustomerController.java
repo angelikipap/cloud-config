@@ -30,6 +30,11 @@ public class CustomerController {
         return customerService.findAllPremium();
     }
 
+    @GetMapping(value="getPremiumEmailSuffix")
+    public String getPremiumEmailSuffix(){
+        return customerService.getPremiumEmailSuffix();
+    }
+
     @GetMapping("/{id}")
     public Customer customer(@PathVariable Long id) {
         return customerService.findOne(id);

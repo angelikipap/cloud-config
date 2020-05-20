@@ -32,6 +32,10 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
+    String getPremiumEmailSuffix(){
+        return this.premiumEmailSuffix;
+    };
+
     List<Customer> findAllPremium() {
         return findAll().stream().filter(it -> it.getEmail().endsWith(premiumEmailSuffix)).collect(toList());
     }
