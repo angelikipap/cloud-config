@@ -2,6 +2,7 @@ package com.bslota.productmanager.product;
 
 import com.bslota.productmanager.infrastructure.exception.BadRequestException;
 import com.bslota.productmanager.infrastructure.exception.NotFoundException;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

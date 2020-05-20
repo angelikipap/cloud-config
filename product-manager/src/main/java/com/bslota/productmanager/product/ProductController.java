@@ -1,5 +1,7 @@
 package com.bslota.productmanager.product;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -12,9 +14,18 @@ import java.util.List;
  */
 @RestController
 @RequestMapping
+@RefreshScope
 public class ProductController {
 
     private final ProductService productService;
+
+    @Value("${hellomessage}")
+    private String hello;
+
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    public String getConf() {
+        return this.hello;
+    }
 
     public ProductController(ProductService productService) {
         this.productService = productService;
